@@ -10,6 +10,7 @@ function SignUp({}) {
             Name
           </label>
           <input
+          name="name"
             type="name"
             className="form-control"
             id="exampleInputname"
@@ -21,6 +22,7 @@ function SignUp({}) {
             Login
           </label>
           <input
+          name="login"
             type="login"
             className="form-control"
             id="exampleInputLogin"
@@ -32,6 +34,7 @@ function SignUp({}) {
             Password
           </label>
           <input
+          name="password"
             type="password"
             className="form-control"
             id="exampleInputPassword1"
