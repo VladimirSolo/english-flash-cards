@@ -1,11 +1,11 @@
-const React = require("react");
-const Layout = require("./Layout");
+const React = require('react');
+const Layout = require('./Layout');
 
 function SignUp({}) {
   return (
     <Layout>
-      <form >
-      <div className="col mb-3">
+      <form action="/signUp" method="POST" id="loginForm">
+        <div className="col mb-3">
           <label htmlFor="exampleInputName" className="form-label">
             Name
           </label>
