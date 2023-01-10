@@ -29,6 +29,8 @@ const mainPage = require('./routes/mainPageRoutes');
 const signUp = require('./routes/signUpRoutes');
 
 const render = require('./lib/render');
+// middleware check authorization
+const isUser = require('./middleware/isUser');
 
 app.use(express.static(path.resolve('public')));
 app.use(morgan('dev'));
@@ -38,7 +40,7 @@ app.use(express.json());
 app.use('/', mainPage);
 app.use('/signUp', signUp);
 // Logout
-app.get('/logout', (req, res) => {
+app.get('/logout', isUser, (req, res) => {
   // kill session
   req.session.destroy(() => {
     res.clearCookie('englishFlashCards');
