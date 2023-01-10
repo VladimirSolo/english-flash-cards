@@ -1,6 +1,6 @@
-const React = require("react");
+const React = require('react');
 
-function Layout({children}) {
+function Layout({ children, user }) {
   return (
     <html lang="en">
       <head>
@@ -18,23 +18,30 @@ function Layout({children}) {
         {/* <link rel="stylesheet" href="/css/style.css" /> */}
       </head>
       <body>
-        <nav className="navbar navbar-expand-lg bg-body-tertiary">
-          <div className="container-fluid">
-            <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-              <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                <li className="nav-item">
-                  <a className="nav-link active" aria-current="page" href="/list"> Home </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link active" aria-current="page" href="/user"> User </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link active" aria-current="page" href="/logout">LogOut</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
+        {
+          user
+            ? (
+              <nav className="navbar navbar-expand-lg bg-body-tertiary">
+                <div className="container-fluid">
+                  <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                      <li className="nav-item">
+                        <a className="nav-link active" aria-current="page" href="/list"> Home </a>
+                      </li>
+                      <li className="nav-item">
+                        <a className="nav-link active" aria-current="page" href="/user"> User </a>
+                      </li>
+                      <li className="nav-item">
+                        <a className="nav-link active" aria-current="page" href="/logout">LogOut</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+            ) : (
+              <div>Hello World!</div>
+            )
+        }
         <div className="container">{children}</div>
       </body>
     </html>
