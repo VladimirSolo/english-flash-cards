@@ -37,6 +37,14 @@ app.use(express.json());
 
 app.use('/', mainPage);
 app.use('/signUp', signUp);
+// Logout
+app.get('/logout', (req, res) => {
+  // kill session
+  req.session.destroy(() => {
+    res.clearCookie('englishFlashCards');
+    res.redirect('/');
+  });
+});
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, (err) => {
