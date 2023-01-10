@@ -26,6 +26,8 @@ const sessionConfig = {
 app.use(session(sessionConfig));
 
 const mainPage = require('./routes/mainPageRoutes');
+//const signUp = require('./routes/mainPageRoutes');
+const user = require('./routes/UserRoutes');
 const signUp = require('./routes/signUpRoutes');
 
 const render = require('./lib/render');
@@ -39,6 +41,7 @@ app.use(express.json());
 
 app.use('/', mainPage);
 app.use('/signUp', signUp);
+app.use('/user', user);
 // Logout
 app.get('/logout', isUser, (req, res) => {
   // kill session
