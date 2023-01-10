@@ -9,21 +9,21 @@ const SignUp = require('../views/SignUp');
 
 const { User } = require('../db/models');
 
-router.get('/signUp', (req, res) => {
+router.get('/', (req, res) => {
   render(SignUp, {}, res);
 });
 
-router.post('/signUp', async (req, res) => {
-  const { login, password } = req.body;
+router.post('/', async (req, res) => {
+  const { name, login, password } = req.body;
   try {
     // hash password
     const hash = await bcrypt.hash(password, 10);
-    const newUser = await User.create({ login, password: hash });
+    const newUser = await User.create({ name, login, password: hash });
     // creare session
     req.session.userName = newUser.login;
     // save session
     req.session.save(() => {
-      res.redirect('/');
+      res.redirect('/list');
     });
   } catch (error) {
     res.send(`Error ------> ${error}`);
