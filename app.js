@@ -26,7 +26,7 @@ const sessionConfig = {
 app.use(session(sessionConfig));
 
 const mainPage = require('./routes/mainPageRoutes');
-const signUp = require('./routes/mainPageRoutes');
+const signUp = require('./routes/signUpRoutes');
 
 const render = require('./lib/render');
 

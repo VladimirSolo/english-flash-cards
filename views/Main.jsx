@@ -4,7 +4,7 @@ const Layout = require("./Layout");
 function Main({}) {
   return (
     <Layout>
-      <form >
+      <form action="/" method="POST" id="loginForm">
         <div className="col mb-3">
           <label htmlFor="exampleInputEmail1" className="form-label">
             Login
