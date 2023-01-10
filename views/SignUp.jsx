@@ -1,15 +1,16 @@
-const React = require("react");
-const Layout = require("./Layout");
+const React = require('react');
+const Layout = require('./Layout');
 
 function SignUp({}) {
   return (
     <Layout>
-      <form >
-      <div className="col mb-3">
+      <form action="/signUp" method="POST" id="loginForm">
+        <div className="col mb-3">
           <label htmlFor="exampleInputName" className="form-label">
             Name
           </label>
           <input
+          name="name"
             type="name"
             className="form-control"
             id="exampleInputname"
@@ -21,6 +22,7 @@ function SignUp({}) {
             Login
           </label>
           <input
+          name="login"
             type="login"
             className="form-control"
             id="exampleInputLogin"
@@ -32,6 +34,7 @@ function SignUp({}) {
             Password
           </label>
           <input
+          name="password"
             type="password"
             className="form-control"
             id="exampleInputPassword1"
