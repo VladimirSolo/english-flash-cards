@@ -29,6 +29,7 @@ const mainPage = require('./routes/mainPageRoutes');
 //const signUp = require('./routes/mainPageRoutes');
 const user = require('./routes/UserRoutes');
 const signUp = require('./routes/signUpRoutes');
+const list = require('./routes/ListRoutes');
 
 const render = require('./lib/render');
 // middleware check authorization
@@ -42,6 +43,7 @@ app.use(express.json());
 app.use('/', mainPage);
 app.use('/signUp', signUp);
 app.use('/user', user);
+app.use('/list', list);
 // Logout
 app.get('/logout', isUser, (req, res) => {
   // kill session
