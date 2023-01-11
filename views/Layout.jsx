@@ -1,7 +1,6 @@
 const React = require('react');
 
 function Layout({ children, user }) {
-  console.log('userLayout+++++++++>', user);
   return (
     <html lang="en">
       <head>
@@ -30,7 +29,7 @@ function Layout({ children, user }) {
                         <a className="nav-link active" aria-current="page" href="/list"> Home </a>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link active" aria-current="page" href="/user"> User </a>
+                        <a className="nav-link active" aria-current="page" href="/user"> {user.name} </a>
                       </li>
                       <li className="nav-item">
                         <a className="nav-link active" aria-current="page" href="/logout">LogOut</a>
