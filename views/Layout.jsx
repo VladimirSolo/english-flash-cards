@@ -8,14 +8,12 @@ function Layout({ children, user }) {
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>LearnYourEnglish</title>
-        <link
-          href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
-          rel="stylesheet"
-          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
-          crossOrigin="anonymous"
-        />
-        <script defer src="/js/application.js" />
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossOrigin="anonymous" />
+        <link rel="stylesheet" href="/css/style.css" />
+        {/* <script defer src="/js/application.js" /> */}
         {/* <link rel="stylesheet" href="/css/style.css" /> */}
+        <script defer src="/js/script.js" />
       </head>
       <body>
         {
