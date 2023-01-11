@@ -30,14 +30,35 @@ router.get('/:id', async (req, res) => {
     const { user } = req.session;
     // console.log('===========================user', user);
     // console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>req.params)', req.params);
-    const words = await Word.findAll({ where: { list_id: req.params.id }, raw: true });
-    console.log(words, 'word<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<');
+    const words = await Word.findAll({
+      where: {
+        list_id: req.params.id,
+        status: false,
+      },
+      raw: true,
+    });
+    // console.log(words, 'word<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<');
     render(WordsShow, { words, user }, res);
   } catch (error) {
     render(Error, {
       message: 'Не удалось получить запись из базы данных.',
       error: {},
     }, res);
+  }
+});
+// DELETE PUT change status in DB
+router.put('/:id', async (req, res) => {
+  try {
+    // find word
+    const status = await Word.findOne({ where: { id: req.params.id } });
+    // rewrite status
+    await status.update({ status: true });
+    // save
+    await status.save();
+    res.sendStatus(200);
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(500);
   }
 });
 
