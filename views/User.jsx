@@ -1,13 +1,14 @@
 const React = require("react");
 const Layout = require("./Layout");
 
-function User({ userName, UserThemes }) {
+function User({ user, UserThemes }) {
+  console.log('userUser=========>', user);
   return (
-    <Layout user={userName}>
+    <Layout user={user}>
       <div className="position-relative">
         <div>
           <h3>
-            Привет, { userName }
+            Привет, { user.name }
           </h3>
         </div>
         <div>

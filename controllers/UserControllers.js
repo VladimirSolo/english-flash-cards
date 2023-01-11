@@ -6,9 +6,11 @@ const { User, List } = require('../db/models');
 
 const userMainPage = async (req, res) => {
   try {
-    const userName = 'Alex';
+    // const userName = 'Alex';
+    console.log('req.session===========>', req.session);
+    const user = req.session.user
     const UserThemes = await List.findAll({ order: [['id']], raw: true });
-    render(UserPage, { userName, UserThemes }, res);
+    render(UserPage, { user, UserThemes }, res);
   } catch (error) {
     console.log('\x1b[31m', 'Error', error);
   }

@@ -1,6 +1,7 @@
 const React = require('react');
 
 function Layout({ children, user }) {
+  console.log('userLayout+++++++++>', user);
   return (
     <html lang="en">
       <head>
@@ -39,7 +40,7 @@ function Layout({ children, user }) {
                 </div>
               </nav>
             ) : (
-              <div>Hello World!</div>
+              <div>Hello, World!</div>
             )
         }
         <div className="container">{children}</div>
