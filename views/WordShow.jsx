@@ -5,11 +5,11 @@ function WordShow({ words, user }) {
   return (
     <Layout user={user}>
 
-      <div key={words.id}>
+      <div className="wrapper" key={words.id}>
         {words.map((word) => (
-          <div>
-            <h1>{word.title_eng}</h1>
-            <h1>{word.title_rus}</h1>
+          <div className="wrapper_card">
+            <p className="front">{word.title_eng}</p>
+            <p className="back">{word.title_rus}</p>
           </div>
         ))}
       </div>
