@@ -1,23 +1,19 @@
+
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
-body {
-  height: 100vh;
-  background: #7fc7ff;
-  /* display: flex;
-  background: #060AB2; */
-}
-
 .wrapper {
-  /* background: #007fff; */
+  background: #007fff;
   width: 640px;
   height: 640px;
   margin: auto;
   display: flex;
   flex-wrap: wrap;
+  /* 3D effect */
   perspective: 1000px;
 }
 
@@ -25,11 +21,14 @@ body {
   width: calc(25% - 10px);
   height: calc(33.333% - 10px);
   margin: 5px;
+text-align: center;
+text-transform: uppercase;
+font-weight: 600;
   position: relative;
   transform: scale(1);
   transform-style: preserve-3d;
   transition: transform .5s;
-  box-shadow: 10px 10px 10px rgba(0,0,0,.3);
+  box-shadow: 2px 2px 2px rgba(0,0,0,.3);
 }
 
 .wrapper_card:active {
@@ -45,11 +44,17 @@ body {
 .back {
   width: 100%;
   height: 100%;
-  padding: 20px;
   position: absolute;
+  padding-top: 80px;
   border-radius: 5px;
   background:#ff80bf;
   backface-visibility: hidden;
+}
+
+.btnDelete {
+  position: absolute;
+  top: 70%;
+  left: 30%;
 }
 
 .front {
