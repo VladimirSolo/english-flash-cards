@@ -14,7 +14,7 @@ function Layout({ children, user }) {
           integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
           crossOrigin="anonymous"
         />
-        {/* <script defer src="/js/application.js" /> */}
+        <script defer src="/js/application.js" />
         {/* <link rel="stylesheet" href="/css/style.css" /> */}
       </head>
       <body>

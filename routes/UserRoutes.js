@@ -3,12 +3,12 @@ const express = require('express');
 const route = express.Router();
 
 const userMainPage = require('../controllers/UserControllers');
-const { 
-  newListPage, 
-  newList, 
+const {
+  newListPage,
+  newList,
   newWordsPage,
-  listOfWords
- } = require('../controllers/newListControllers');
+  listOfWords,
+} = require('../controllers/newListControllers');
 
 route.get('/', userMainPage);
 route.get('/newList', newListPage);
