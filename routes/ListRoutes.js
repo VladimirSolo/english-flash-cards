@@ -3,7 +3,7 @@ const router = require('express').Router();
 const render = require('../lib/render');
 const ListTheme = require('../views/ListTheme');
 const Error = require('../views/Error');
-const { List } = require('../db/models');
+const { List, Connect } = require('../db/models');
 
 const { Word } = require('../db/models');
 const WordsShow = require('../views/WordShow');
@@ -28,8 +28,8 @@ router.get('/:id', async (req, res) => {
   try {
   // information about user: login, password, name
     const { user } = req.session;
-    // console.log('===========================user', user);
-    // console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>req.params)', req.params);
+    console.log('===========================user', user);
+    console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>req.params)', req.params);
     const words = await Word.findAll({
       where: {
         list_id: req.params.id,
@@ -37,6 +37,12 @@ router.get('/:id', async (req, res) => {
       },
       raw: true,
     });
+    await Connect.findOrCreate({
+      where: {
+        list_id: req.params.id,
+        user_id: user.id
+      }
+    })
     // console.log(words, 'word<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<');
     render(WordsShow, { words, user }, res);
   } catch (error) {

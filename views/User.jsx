@@ -36,8 +36,8 @@ function User({ user, UserThemes }) {
         <h4>Темы, которые ты изучаешь</h4>
         <div>
           <ul>
-            {UserThemes.map((el) => (
-              <li>{el.title}</li>
+            {UserThemes?.map((el) => (
+              <li>{el['List.title']}</li>
             ))}
           </ul>
         </div>
