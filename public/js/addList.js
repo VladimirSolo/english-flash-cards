@@ -18,13 +18,12 @@ addNewList.addEventListener('submit', async (event) => {
     document.querySelector('#newList').value = '';
     
     if (newUserList[1] === false) {
-      const doubleList = '<div style="color red">Эта тема уже находится в базе</div>';
-      doubleLists?.insertAdjacentHTML('beforeend', doubleList);
+      const doubleList = '<div style="color:red">Эта тема уже находится в базе</div>';
+      doubleLists?.insertAdjacentHTML('afterend', doubleList);
     } else {
-      const newList = '<div>Тема успешно добавлена</div>';
-      doubleLists?.insertAdjacentHTML('beforeend', newList);
+      const newList = '<div style="color:green">Тема успешно добавлена</div>';
+      doubleLists?.insertAdjacentHTML('afterend', newList);
     }
-    
   } catch (err) {
     console.log('eer18addList<==========', err);
   }

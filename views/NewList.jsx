@@ -4,6 +4,7 @@ const Layout = require("./Layout");
 function NewList({ user }) {
   return (
     <Layout user={user}>
+        <script defer src="/js/addList.js" />
       <div className="position-relative">
         <div>
           <h3>{user.name}</h3>
@@ -27,13 +28,16 @@ function NewList({ user }) {
               required
             />
           </div>
-          <div className="slovo">
+          <div >
             <button type="submit" className="btn btn-info" href="/newTheme">
-                Создать
-             </button>
-
+              Создать
+            </button>
           </div>
         </form>
+        <a className="slovo" href="/user/newWords">
+          <button className="btn btn-info">Перейти к созданию карточек</button>
+        </a>
+        <div className="slovo" style={{color: 'red'}}></div>
       </div>
     </Layout>
   );
