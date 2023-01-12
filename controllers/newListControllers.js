@@ -3,7 +3,7 @@ const render = require('../lib/render');
 const NewList = require('../views/NewList');
 const NewWords = require('../views/NewWords');
 
-const { List, Word } = require('../db/models');
+const { List, Word, Connect } = require('../db/models');
 
 const newListPage = (req, res) => {
   const { user } = req.session;
@@ -13,9 +13,9 @@ const newListPage = (req, res) => {
 const newList = async (req, res) => {
   try {
     const { newList } = req.body;
-    
     const { user } = req.session;
-    const newUserList = await List.create({ title: newList, user_id: user.id });
+    const newUserList = await List.create({ title: newList });
+    await Connect.create({ user_id: user.id, list_id: newUserList.id })
     res.redirect('/user/newWords');
   } catch (err) {
     console.log('errNewListControllers21', err);
@@ -27,11 +27,11 @@ const newWordsPage = async (req, res) => {
   try {
     const { user } = req.session;
     // const usersWords = await Word.findAll({})
-    const usersList = await List.findAll({
+    const usersList = await Connect.findAll({
       where: { user_id: user.id },
+      include: List,
       raw: true,
     });
-    console.log('usersList=========>', usersList);
     render(NewWords, { user, usersList }, res);
   } catch (err) {
     console.log('errNewListControllers34', err);
@@ -55,7 +55,7 @@ const listOfWords = async (req, res) => {
     });
     res.json({ newWords });
   } catch (err) {
-    console.log('errNewListControllers34', err);
+    console.log('errNewListControllers58', err);
   }
 };
 

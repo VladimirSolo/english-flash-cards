@@ -2,14 +2,14 @@ const render = require('../lib/render');
 
 const UserPage = require('../views/User');
 
-const { List } = require('../db/models');
+const { Connect, List } = require('../db/models');
 
 const userMainPage = async (req, res) => {
   try {
-    // const userName = 'Alex';
     const { user } = req.session;
-    const UserThemes = await List.findAll({
+    const UserThemes = await Connect.findAll({
       where: { user_id: user.id },
+      include: List,
       order: [['id']],
       raw: true,
     });

@@ -31,8 +31,8 @@ function NewWords({ user, usersList }) {
               {/* <option selected>Выбери...</option> */}
               {usersList &&
                 usersList.map((el) => (
-                  <option name="list" value={el.id}>
-                    {el.title}
+                  <option name="list" value={el['List.id']}>
+                    {el['List.title']}
                   </option>
                 ))}
             </select>
