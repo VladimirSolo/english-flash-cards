@@ -8,7 +8,7 @@
 
 .wrapper {
   background: #007fff;
-  width: 640px;
+  width: 840px;
   height: 640px;
   margin: auto;
   display: flex;
@@ -59,4 +59,20 @@ font-weight: 600;
 
 .front {
   transform: rotateY(180deg);
+}
+
+.box_theme {
+  width: 840px;
+  height: 640px;
+  text-align: center;
+  background: #007fff;
+  margin-top: 20px;
+  padding: 0 10px 20px 10px;
+  margin: 0 auto;
+  display: flex;
+}
+
+h5 {
+  text-transform: uppercase;
+  font-weight: 500;
 }

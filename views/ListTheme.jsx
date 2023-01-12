@@ -9,11 +9,10 @@ function ListTheme({ themes, user }) {
         , выбирай и изучай!
       </h1>
 
-      <div className="row row-cols-1 row-cols-md-3 g-4" key={themes.id}>
+      <div className="row row-cols-1 row-cols-md-4 g-4 box_theme" key={themes.id}>
         {themes.map((theme) => (
           <div className="col">
-            <div className="card" >
-              <img src="..." className="card-img-top" alt="..." />  
+            <div className="card box_card">
               <div className="card-body">
                 <h5 className="card-title">{theme.title}</h5>
                 <a href={`/list/${theme.id}`} className="btn text-white" style={{ background: '#d63384' }}>Иди учи</a>
