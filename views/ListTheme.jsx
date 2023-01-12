@@ -14,8 +14,8 @@ function ListTheme({ themes, user }) {
           <div className="col">
             <div className="card box_card">
               <div className="card-body">
-                <h5 className="card-title">{theme.title}</h5>
-                <a href={`/list/${theme.id}`} className="btn text-white" style={{ background: '#d63384' }}>Иди учи</a>
+                <h5 className="card-title">{theme['List.title']}</h5>
+                <a href={`/list/${theme['List.id']}`} className="btn text-white" style={{ background: '#d63384' }}>Иди учи</a>
               </div>
             </div>
           </div>
