@@ -2,7 +2,7 @@ const React = require("react");
 const Layout = require("./Layout");
 
 function NewWords({ user, usersList }) {
-  console.log('usersListNewWords======>', usersList);
+  // console.log('usersListNewWords======>', usersList);
   return (
     <Layout user={user}>
       <div className="position-relative">
