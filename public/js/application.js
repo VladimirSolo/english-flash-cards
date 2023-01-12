@@ -15,10 +15,11 @@ addWords.addEventListener('submit', async (event) => {
       body: JSON.stringify({ id, title_rus, title_eng }),
     });
 
-    const {newWords} = await response.json();
+    const { newWords } = await response.json();
 
     document.querySelector('#title_rus').value = '';
     document.querySelector('#title_eng').value = '';
+    
     if (newWords[1] === false) {
       const doubleWord = '<div>Данные слова уже находятся в базе</div>';
       dubbleWords?.insertAdjacentHTML('beforeend', doubleWord);
@@ -28,6 +29,6 @@ addWords.addEventListener('submit', async (event) => {
       dubbleWords?.insertAdjacentHTML('beforeend', newWord);
     }
   } catch (err) {
-    console.log('eer11<==========', err);
+    console.log('eer31application<==========', err);
   }
 });
