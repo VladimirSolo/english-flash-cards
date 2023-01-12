@@ -28,7 +28,7 @@ function NewWords({ user, usersList }) {
               id="addWords"
               required
             >
-              {/* <option selected>Выбери...</option> */}
+              <option selected>Выбери...</option>
               {usersList &&
                 usersList.map((el) => (
                   <option name="list" value={el['List.id']}>
@@ -45,6 +45,7 @@ function NewWords({ user, usersList }) {
               id="title_rus"
               placeholder="слово на русском"
               aria-label="Username"
+              required
             />
             <input
               name="title_eng"
@@ -53,6 +54,7 @@ function NewWords({ user, usersList }) {
               id="title_eng"
               placeholder="перевод слова на английский"
               aria-label="Server"
+              required
             />
           </div>
           <div className="slovo">
