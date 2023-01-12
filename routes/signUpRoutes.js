@@ -20,7 +20,9 @@ router.post('/', async (req, res) => {
     const hash = await bcrypt.hash(password, 10);
     const newUser = await User.create({ name, login, password: hash });
     // creare session
-    req.session.userName = newUser.login;
+    // req.session.userName = newUser.login;
+    req.session.user = { id: newUser.id, name: newUser.name, login: newUser.login };
+console.log('req.session.user------------>', req.session.user);
     // save session
     req.session.save(() => {
       res.redirect('/list');

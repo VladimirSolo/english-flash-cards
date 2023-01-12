@@ -23,7 +23,9 @@ route.post('/', async (req, res) => {
       // check
       if (passCheck) {
         // create and save session and redirect
-        req.session.userName = user.login;
+        // req.session.userName = user.login;
+    req.session.user = { id: user.id, name: user.name, login: user.login };
+
         req.session.save(() => {
           // TODO: if ok redirect '/list'
           res.redirect('/list');
