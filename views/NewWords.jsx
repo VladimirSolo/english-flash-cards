@@ -5,6 +5,7 @@ function NewWords({ user, usersList }) {
   // console.log('usersListNewWords======>', usersList);
   return (
     <Layout user={user}>
+        <script defer src="/js/application.js" />
       <div className="position-relative">
         <div>
           <h3>{user.name}</h3>

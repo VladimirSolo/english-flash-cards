@@ -19,7 +19,10 @@ const newList = async (req, res) => {
         title,
       },
     });
-    await Connect.create({ user_id: user.id, list_id: newUserList[0].id });
+    if (newUserList[1] === true) {
+      await Connect.create({ user_id: user.id, list_id: newUserList[0].id });
+    }
+
     res.json({ newUserList });
     
   } catch (err) {
