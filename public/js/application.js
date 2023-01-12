@@ -15,8 +15,7 @@ addWords.addEventListener('submit', async (event) => {
       body: JSON.stringify({ id, title_rus, title_eng }),
     });
 
-    const { newWords } = await response.json();
-    console.log('newWords===========>', newWords[1]);
+    const {newWords} = await response.json();
 
     document.querySelector('#title_rus').value = '';
     document.querySelector('#title_eng').value = '';

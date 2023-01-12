@@ -31,7 +31,7 @@ const newWordsPage = async (req, res) => {
       where: { user_id: user.id },
       raw: true,
     });
-    // console.log('usersList=========>', usersList);
+    console.log('usersList=========>', usersList);
     render(NewWords, { user, usersList }, res);
   } catch (err) {
     console.log('errNewListControllers34', err);
@@ -40,6 +40,7 @@ const newWordsPage = async (req, res) => {
 
 const listOfWords = async (req, res) => {
   const { id, title_rus, title_eng } = req.body;
+  // console.log('-------req.body----------', req.body);
   // console.log('id, title_rus, title_eng', id, title_rus, title_eng);
   try {
     const { user } = req.session;
@@ -52,7 +53,6 @@ const listOfWords = async (req, res) => {
       },
       raw: true,
     });
-    console.log('newWords===========>', newWords);
     res.json({ newWords });
   } catch (err) {
     console.log('errNewListControllers34', err);
