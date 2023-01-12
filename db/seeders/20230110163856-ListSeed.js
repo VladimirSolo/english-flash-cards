@@ -4,19 +4,19 @@ module.exports = {
     await queryInterface.bulkInsert('Lists', [
       {
         title: 'еда',
-        user_id: '1',
+        // user_id: '1',
       },
       {
         title: 'транспорт',
-        user_id: '1',
+        // user_id: '1',
       },
       {
         title: 'знакомство',
-        user_id: '1',
+        // user_id: '1',
       },
       {
         title: 'IT',
-        user_id: '1',
+        // user_id: '1',
       },
     ], {});
   },
