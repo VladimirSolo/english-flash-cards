@@ -2,13 +2,17 @@ const React = require("react");
 const Layout = require("./Layout");
 
 function NewWords({ user, usersList }) {
-  console.log('usersListNewWords======>', usersList);
+  // console.log('usersListNewWords======>', usersList);
   return (
     <Layout user={user}>
+        <script defer src="/js/application.js" />
+        <div  className="newWordPage">
+
       <div className="position-relative">
-        <div>
+        <div style={{color:"#007fff"}} className="userName" >
           <h3>{user.name}</h3>
         </div>
+        <div>
         <form
           className="addListAndWords"
           action="/user/newWords/new"
@@ -16,12 +20,12 @@ function NewWords({ user, usersList }) {
           id="loginForm"
           name="addListAndWords"
         >
-          <div className="col mb-3">
-            <label htmlFor="exampleInputName" className="form-label">
+          <div className="col mb-3" className="text" >
+            <label htmlFor="exampleInputName" className="form-label" style={{color:"#007fff"}}> 
               выбери название темы, в которую хочешь добавить новые слова
             </label>
           </div>
-          <div className="input-group mb-3">
+          <div className="input-group mb-3" style={{width: "600px"}}>
             <select
               className="form-select"
               name="addWords"
@@ -37,7 +41,7 @@ function NewWords({ user, usersList }) {
                 ))}
             </select>
           </div>
-          <div className="input-group mb-3">
+          <div className="input-group mb-3" style={{width: "600px"}}>
             <input
               name="title_rus"
               type="text"
@@ -58,13 +62,15 @@ function NewWords({ user, usersList }) {
             />
           </div>
           <div className="slovo">
-              <button type="submit" className="btn btn-info">
+              <button type="submit" className="btn btnNewWord" style={{ backgroundColor: "pink" }}>
                 Создать
               </button>
           </div>
         </form>
+        </div>
         
       </div>
+        </div>
     </Layout>
   );
 }

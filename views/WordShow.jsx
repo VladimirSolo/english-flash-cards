@@ -1,14 +1,14 @@
 const React = require('react');
 const Layout = require('./Layout');
 
-function WordShow({ words, user }) {
-
+function WordShow({ listOfWord, user }) {
+    // console.log('===listOfWord======', listOfWord);
   return (
 
     <Layout user={user}>
 
-      <div className="wrapper" key={words.id}>
-        {words.map((word) => (
+      <div className="wrapper" key={listOfWord.id}>
+        {listOfWord.map((word) => (
           <div className="wrapper_card" data-id={word.id}>
             <p className="front rotate">
               {word.title_eng}

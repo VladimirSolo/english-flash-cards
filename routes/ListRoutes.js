@@ -3,17 +3,24 @@ const router = require('express').Router();
 const render = require('../lib/render');
 const ListTheme = require('../views/ListTheme');
 const Error = require('../views/Error');
-const { List, Connect } = require('../db/models');
+const { List, Connect, Word } = require('../db/models');
 
-const { Word } = require('../db/models');
 const WordsShow = require('../views/WordShow');
 
 router.get('/', async (req, res) => {
   try {
     // information about user: login, password, name
     const { user } = req.session;
+    console.log('req.session', user.id);
     // find list of all themes in db
-    const themes = await List.findAll({ raw: true });
+    const themes = await Connect.findAll({
+      where: {
+        user_id: user.id,
+      },
+      include: List,
+      raw: true,
+    });
+    // console.log('=======themes=====', themes);
     // render reactcomponent
     render(ListTheme, { themes, user }, res);
   } catch (error) {
@@ -28,23 +35,29 @@ router.get('/:id', async (req, res) => {
   try {
   // information about user: login, password, name
     const { user } = req.session;
-    console.log('===========================user', user);
-    console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>req.params)', req.params);
-    const words = await Word.findAll({
+    // console.log('===========================user', user);
+    // console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>req.params)', req.params);
+    const words = await Connect.findOne({
+      where: { list_id: req.params.id },
+      raw: true,
+    });
+
+    const listOfWord = await Word.findAll({
       where: {
-        list_id: req.params.id,
+        list_id: words.list_id,
         status: false,
       },
       raw: true,
     });
-    await Connect.findOrCreate({
-      where: {
-        list_id: req.params.id,
-        user_id: user.id
-      }
-    })
-    // console.log(words, 'word<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<');
-    render(WordsShow, { words, user }, res);
+
+    // await Connect.findOrCreate({
+    //   where: {
+    //     list_id: req.params.id,
+    //     user_id: user.id,
+    //   },
+    // });
+
+    render(WordsShow, { listOfWord, user }, res);
   } catch (error) {
     render(Error, {
       message: 'Не удалось получить запись из базы данных.',

@@ -1,25 +1,13 @@
 const React = require('react');
 const Layout = require('./Layout');
 
-function User({
-  user, UserThemes, obj
-}) {
-  // find unique values
-  const res = UserThemes.reduce((arr, i) => {
-    if (!arr.find(el => el['List.title'] === i['List.title'])) {
-      arr.push(i);
-    }
-    return arr;
-  }, []);
-  // console.log(res);
+function User({ user, UserThemes }) {
   return (
     <Layout user={user}>
       <div className="position-relative">
         <div>
           <h3>
-            Привет,
-            {' '}
-            { user.name }
+            Привет, { user.name }
           </h3>
         </div>
         <div>
@@ -30,12 +18,12 @@ function User({
           >
             <a href="/user/newList">
               <button type="button" className="btn btn-info">
-                Создать новую тему
+                Создать новую тему 
               </button>
             </a>
             <a href="/user/newWords">
               <button type="button" className="btn btn-info" href="/newTheme">
-                Создать новую карточку
+                Создать новую карточку 
               </button>
             </a>
             <a href="/newTheme">
