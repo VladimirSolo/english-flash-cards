@@ -14,8 +14,12 @@ function User({ user, UserThemes, obj }) {
     <Layout user={user}>
       <div className="position-relative" className="mainPage">
         <div className="firstRow">
-          <div className="hello" style={{color:"#007fff"}}>
-            <h3>Привет, {user.name}</h3>
+          <div className="hello" style={{ color: '#007fff' }}>
+            <h3>
+              Привет,
+              {' '}
+              {user.name}
+            </h3>
           </div>
           <div className="btns">
             <div
@@ -27,7 +31,7 @@ function User({ user, UserThemes, obj }) {
                 <button
                   type="button"
                   className="btn btnUser"
-                  style={{ backgroundColor: "pink" }}
+                  style={{ backgroundColor: 'pink' }}
                 >
                   Создать новую тему
                 </button>
@@ -36,7 +40,7 @@ function User({ user, UserThemes, obj }) {
                 <button
                   type="button"
                   className="btn btnUser"
-                  style={{ backgroundColor: "pink" }}
+                  style={{ backgroundColor: 'pink' }}
                 >
                   Создать новую карточку
                 </button>
@@ -46,7 +50,7 @@ function User({ user, UserThemes, obj }) {
                   type="button"
                   className="btn btnUser"
                   href="/myThemes"
-                  style={{ backgroundColor: "pink" }}
+                  style={{ backgroundColor: 'pink' }}
                 >
                   Созданные мной темы
                 </button>
@@ -54,11 +58,10 @@ function User({ user, UserThemes, obj }) {
             </div>
           </div>
         </div>
+        <div style={{ color: '#007fff' }}>
+          <h4>Темы, которые ты изучаешь</h4>
+        </div>
         <div>
-          <div style={{color:"#007fff"}}>
-            <h4>Темы, которые ты изучаешь</h4>
-          </div>
-          <div>
           {res?.map((el) => (
             <div key={el.id}>
               <h2>{el['List.title']}</h2>
@@ -79,7 +82,6 @@ function User({ user, UserThemes, obj }) {
               </svg>
             </div>
           ))}
-          </div>
         </div>
       </div>
     </Layout>
