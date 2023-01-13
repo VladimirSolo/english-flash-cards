@@ -76,3 +76,16 @@ h5 {
   text-transform: uppercase;
   font-weight: 500;
 }
+
+/* progress bar ->>>>>>>>>>>>>>>>*/
+
+.progress_ring {
+  /* stroke-dasharray: 50 10; */
+  /* stroke-dashoffset: 100; */
+}
+
+.progress_circle {
+  transform-origin: center;
+  transform: rotate(-90deg);
+  transition: stroke-dashoffset 0.3s;
+}
