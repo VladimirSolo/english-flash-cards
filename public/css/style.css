@@ -17,6 +17,66 @@
   perspective: 1000px;
 }
 
+.mainPage {
+  margin-top: 50px;
+  display: flex;
+  /* justify-content: space-between; */
+  flex-direction: column;
+}
+
+.newListPage {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  /* flex-direction: column; */
+}
+
+.newWordPage {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+}
+.userName {
+  display: flex;
+  justify-content: center;
+}
+
+.text {
+  display: flex;
+  justify-content: center;
+}
+
+.firstRow {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.hello {
+  float:left;
+}
+
+.btns {
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+  margin-left: auto;
+}
+
+.btnUser {
+  width: 250px;
+  margin: 5px;
+}
+
+.btnNewList {
+  width: 450px;
+  margin: 5px;
+} 
+.btnNewWord {
+  width: 600px;
+  margin: 5px;
+} 
+
 .wrapper_card {
   width: calc(25% - 10px);
   height: calc(33.333% - 10px);
