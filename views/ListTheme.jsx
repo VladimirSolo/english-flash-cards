@@ -2,6 +2,7 @@ const React = require('react');
 const Layout = require('./Layout');
 
 function ListTheme({ themes, user }) {
+  console.log('themes', themes);
   return (
     <Layout user={user}>
       <h1>
@@ -9,7 +10,7 @@ function ListTheme({ themes, user }) {
         , выбирай и изучай!
       </h1>
 
-      <div className="row row-cols-1 row-cols-md-4 g-4 box_theme" key={themes.id}>
+      <div className="row row-cols-1 row-cols-md-4 g-4 box_theme" key={themes['List.id']}>
         {themes.map((theme) => (
           <div className="col">
             <div className="card box_card">
