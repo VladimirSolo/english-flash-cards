@@ -1,0 +1,155 @@
+
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.wrapper {
+  background: #007fff;
+  width: 840px;
+  height: 640px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  /* 3D effect */
+  perspective: 1000px;
+}
+
+.mainPage {
+  margin-top: 50px;
+  display: flex;
+  /* justify-content: space-between; */
+  flex-direction: column;
+}
+
+.newListPage {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  /* flex-direction: column; */
+}
+
+.newWordPage {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+}
+.userName {
+  display: flex;
+  justify-content: center;
+}
+
+.text {
+  display: flex;
+  justify-content: center;
+}
+
+.firstRow {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.hello {
+  float:left;
+}
+
+.btns {
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+  margin-left: auto;
+}
+
+.btnUser {
+  width: 250px;
+  margin: 5px;
+}
+
+.btnNewList {
+  width: 450px;
+  margin: 5px;
+} 
+.btnNewWord {
+  width: 600px;
+  margin: 5px;
+} 
+.btnMain {
+  width: 350px;
+  margin: 5px;
+} 
+
+.wrapper_card {
+  width: calc(25% - 10px);
+  height: calc(33.333% - 10px);
+  margin: 5px;
+text-align: center;
+text-transform: uppercase;
+font-weight: 600;
+  position: relative;
+  transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform .5s;
+  box-shadow: 2px 2px 2px rgba(0,0,0,.3);
+}
+
+.wrapper_card:active {
+  transform: scale(0.97);
+  transition: transform .2s;
+}
+
+.wrapper_card.flip {
+  transform: rotateY(180deg);
+}
+
+.front,
+.back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  padding-top: 80px;
+  border-radius: 5px;
+  background:#ff80bf;
+  backface-visibility: hidden;
+}
+
+.btnDelete {
+  position: absolute;
+  top: 70%;
+  left: 30%;
+}
+
+.front {
+  transform: rotateY(180deg);
+}
+
+.box_theme {
+  width: 840px;
+  height: 640px;
+  text-align: center;
+  background: #007fff;
+  margin-top: 20px;
+  padding: 0 10px 20px 10px;
+  margin: 0 auto;
+  display: flex;
+}
+
+h5 {
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* progress bar ->>>>>>>>>>>>>>>>*/
+
+.progress_ring {
+  /* stroke-dasharray: 50 10; */
+  /* stroke-dashoffset: 100; */
+}
+
+.progress_circle {
+  transform-origin: center;
+  transform: rotate(-90deg);
+  transition: stroke-dashoffset 0.3s;
+}

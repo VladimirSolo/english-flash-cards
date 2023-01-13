@@ -16,19 +16,19 @@ addWords.addEventListener('submit', async (event) => {
     });
 
     const { newWords } = await response.json();
-    console.log('newWords===========>', newWords[1]);
 
     document.querySelector('#title_rus').value = '';
     document.querySelector('#title_eng').value = '';
+    
     if (newWords[1] === false) {
-      const doubleWord = '<div>Данные слова уже находятся в базе</div>';
+      const doubleWord = '<div style="color:red">Данные слова уже находятся в базе</div>';
       dubbleWords?.insertAdjacentHTML('beforeend', doubleWord);
       // console.log('уже существуют');
     } else {
-      const newWord = '<div>Слова успешно добавлены</div>';
+      const newWord = '<div style="color:green">Слова успешно добавлены</div>';
       dubbleWords?.insertAdjacentHTML('beforeend', newWord);
     }
   } catch (err) {
-    console.log('eer11<==========', err);
+    console.log('eer31application<==========', err);
   }
 });

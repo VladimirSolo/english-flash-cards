@@ -10,9 +10,17 @@ module.exports = {
       createdAt: new Date(),
       updatedAt: new Date(),
     };
+    const testUser2 = {
+      name: 'vova',
+      login: 'vovan',
+      password: await bcrypt.hash('123', 10),
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    };
     // console.log(testUser);
-    await queryInterface.bulkInsert(['Users',
+    await queryInterface.bulkInsert('Users', [
       testUser,
+      testUser2,
     ]);
   },
 

@@ -3,7 +3,7 @@ const render = require('../lib/render');
 const NewList = require('../views/NewList');
 const NewWords = require('../views/NewWords');
 
-const { List, Word } = require('../db/models');
+const { List, Word, Connect } = require('../db/models');
 
 const newListPage = (req, res) => {
   const { user } = req.session;
@@ -12,35 +12,40 @@ const newListPage = (req, res) => {
 
 const newList = async (req, res) => {
   try {
-    const { newList } = req.body;
-    
+    const { title } = req.body;
     const { user } = req.session;
-    const newUserList = await List.create({ title: newList, user_id: user.id });
-    res.redirect('/user/newWords');
+    const newUserList = await List.findOrCreate({
+      where: {
+        title,
+      },
+    });
+    if (newUserList[1] === true) {
+      await Connect.create({ user_id: user.id, list_id: newUserList[0].id });
+    }
+
+    res.json({ newUserList });
+    
   } catch (err) {
-    console.log('errNewListControllers21', err);
+    console.log('errNewListControllers25', err);
   }
 };
 
 const newWordsPage = async (req, res) => {
-  // const { user } = req.session;
   try {
     const { user } = req.session;
-    // const usersWords = await Word.findAll({})
-    const usersList = await List.findAll({
+    const usersList = await Connect.findAll({
       where: { user_id: user.id },
+      include: List,
       raw: true,
     });
-    // console.log('usersList=========>', usersList);
     render(NewWords, { user, usersList }, res);
   } catch (err) {
-    console.log('errNewListControllers34', err);
+    console.log('errNewListControllers39', err);
   }
 };
 
 const listOfWords = async (req, res) => {
   const { id, title_rus, title_eng } = req.body;
-  // console.log('id, title_rus, title_eng', id, title_rus, title_eng);
   try {
     const { user } = req.session;
     const newWords = await Word.findOrCreate({
@@ -52,10 +57,9 @@ const listOfWords = async (req, res) => {
       },
       raw: true,
     });
-    console.log('newWords===========>', newWords);
     res.json({ newWords });
   } catch (err) {
-    console.log('errNewListControllers34', err);
+    console.log('errNewListControllers58', err);
   }
 };
 
