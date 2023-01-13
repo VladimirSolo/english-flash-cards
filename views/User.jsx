@@ -1,7 +1,7 @@
 const React = require("react");
 const Layout = require("./Layout");
 
-function User({ user, UserThemes }) {
+function User({ user, userThemes }) {
   return (
     <Layout user={user}>
       <div className="position-relative">
@@ -36,7 +36,7 @@ function User({ user, UserThemes }) {
         <h4>Темы, которые ты изучаешь</h4>
         <div>
           <ul>
-            {UserThemes?.map((el) => (
+            {userThemes?.map((el) => (
               <li>{el['List.title']}</li>
             ))}
           </ul>

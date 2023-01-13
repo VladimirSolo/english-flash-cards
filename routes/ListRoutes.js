@@ -38,10 +38,17 @@ router.get('/:id', async (req, res) => {
     // console.log('===========================user', user);
     // console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>req.params)', req.params);
     const words = await Connect.findOne({
-      where: { id: req.params.id },
+      where: { list_id: req.params.id },
       raw: true,
     });
-    const listOfWord = await Word.findAll({ where: { list_id: words.list_id, status: false }, raw: true});
+
+    const listOfWord = await Word.findAll({
+      where: {
+        list_id: words.list_id,
+        status: false,
+      },
+      raw: true,
+    });
 
     // await Connect.findOrCreate({
     //   where: {
@@ -49,7 +56,7 @@ router.get('/:id', async (req, res) => {
     //     user_id: user.id,
     //   },
     // });
-    console.log('word<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<', listOfWord[1].title_rus);
+
     render(WordsShow, { listOfWord, user }, res);
   } catch (error) {
     render(Error, {
