@@ -14,6 +14,7 @@ function Layout({ children, user }) {
         {/* <script defer src="/js/application.js" /> */}
         {/* <script defer src="/js/addList.js" /> */}
         <script defer src="/js/script.js" />
+        <script defer src="/js/progressbar.js" />
       </head>
       <body>
         {

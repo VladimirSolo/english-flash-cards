@@ -1,7 +1,15 @@
-const React = require("react");
-const Layout = require("./Layout");
+const React = require('react');
+const Layout = require('./Layout');
 
-function User({ user, userThemes }) {
+function User({ user, UserThemes, obj }) {
+  // find unique values
+  const res = UserThemes.reduce((arr, i) => {
+    if (!arr.find((el) => el['List.title'] === i['List.title'])) {
+      arr.push(i);
+    }
+    return arr;
+  }, []);
+  // console.log(res);
   return (
     <Layout user={user}>
       <div className="position-relative" className="mainPage">
@@ -51,11 +59,26 @@ function User({ user, userThemes }) {
             <h4>Темы, которые ты изучаешь</h4>
           </div>
           <div>
-            <ul>
-              {userThemes?.map((el) => (
-                <li>{el["List.title"]}</li>
-              ))}
-            </ul>
+          {res?.map((el) => (
+            <div key={el.id}>
+              <h2>{el['List.title']}</h2>
+              изучено:
+              <p className="trueStatus">
+                {obj[el['List.title']].tr}
+              </p>
+              всего изучить:
+              <p className="falseStatus">
+                {obj[el['List.title']].fl + obj[el['List.title']].tr}
+              </p>
+              <svg className="progress_ring" width="120" height="120">
+                <text x="29" y="70" fontFamily="Verdana" fontSize="25" fill="blue">
+                  {Math.floor((obj[el['List.title']].tr * 100) / (obj[el['List.title']].fl + obj[el['List.title']].tr))}
+                  %
+                </text>
+                <circle className="progress_circle" stroke="#ff80bf" strokeWidth="14" cx="60" cy="60" r="52" fill="transparent" />
+              </svg>
+            </div>
+          ))}
           </div>
         </div>
       </div>
