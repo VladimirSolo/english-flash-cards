@@ -28,7 +28,11 @@ function Layout({ children, user }) {
                         <a className="nav-link active" aria-current="page" href="/list"> Home </a>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link active" aria-current="page" href="/user"> {user.name} </a>
+                        <a className="nav-link active" aria-current="page" href="/user">
+                          {' '}
+                          {user.name}
+                          {' '}
+                        </a>
                       </li>
                       <li className="nav-item">
                         <a className="nav-link active" aria-current="page" href="/logout">LogOut</a>
@@ -38,7 +42,17 @@ function Layout({ children, user }) {
                 </div>
               </nav>
             ) : (
-              <div>Hello, World!</div>
+              <nav className="navbar navbar-expand-lg bg-body-tertiary">
+                <div className="container-fluid">
+                  <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                      <li className="nav-item">
+                        <a className="nav-link active" aria-current="page" href="/"> English-Flash-Card </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
             )
         }
         <div className="container">{children}</div>

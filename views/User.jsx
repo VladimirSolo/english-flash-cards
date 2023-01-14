@@ -63,7 +63,7 @@ function User({ user, UserThemes, obj }) {
         </div>
         <div>
           {res?.map((el) => (
-            <div key={el.id}>
+            <div className="statistic" key={el.id}>
               <h2>{el['List.title']}</h2>
               изучено:
               <p className="trueStatus">

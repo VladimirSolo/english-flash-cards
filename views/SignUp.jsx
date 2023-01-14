@@ -5,7 +5,7 @@ function SignUp({}) {
   return (
     <Layout>
       <form action="/signUp" method="POST" id="loginForm">
-        <div className="col mb-3">
+        <div className="col mb-3" style={{color:"#007fff"}}>
           <label htmlFor="exampleInputName" className="form-label">
             Name
           </label>
@@ -15,9 +15,10 @@ function SignUp({}) {
             className="form-control"
             id="exampleInputname"
             aria-describedby="nameHelp"
+            style={{ width: "500px" }}
           />
         </div>
-        <div className="col mb-3">
+        <div className="col mb-3" style={{color:"#007fff"}}>
           <label htmlFor="exampleInputEmail1" className="form-label">
             Login
           </label>
@@ -27,9 +28,10 @@ function SignUp({}) {
             className="form-control"
             id="exampleInputLogin"
             aria-describedby="loginHelp"
+            style={{ width: "500px" }}
           />
         </div>
-        <div className="col mb-3">
+        <div className="col mb-3" style={{color:"#007fff"}}>
           <label htmlFor="exampleInputPassword1" className="form-label">
             Password
           </label>
@@ -38,9 +40,11 @@ function SignUp({}) {
             type="password"
             className="form-control"
             id="exampleInputPassword1"
+            style={{ width: "500px" }}
           />
-        </div>
-        <button type="submit" className="btn btn-success">
+        </div >
+        
+        <button type="submit" className="btn" style={{ backgroundColor: "pink" }}>
           Зарегистрироваться
         </button>
       </form>

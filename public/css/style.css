@@ -76,6 +76,10 @@
   width: 600px;
   margin: 5px;
 } 
+.btnMain {
+  width: 350px;
+  margin: 5px;
+} 
 
 .wrapper_card {
   width: calc(25% - 10px);
@@ -149,3 +153,10 @@ h5 {
   transform: rotate(-90deg);
   transition: stroke-dashoffset 0.3s;
 }
+
+.statistic {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
