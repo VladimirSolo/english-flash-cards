@@ -45,11 +45,10 @@ function User({ user, UserThemes, obj }) {
                   Создать новую карточку
                 </button>
               </a>
-              <a href="/newTheme">
+              <a href="/user/myThemes">
                 <button
                   type="button"
                   className="btn btnUser"
-                  href="/myThemes"
                   style={{ backgroundColor: 'pink' }}
                 >
                   Созданные мной темы

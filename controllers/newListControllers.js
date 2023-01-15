@@ -2,6 +2,7 @@ const render = require('../lib/render');
 
 const NewList = require('../views/NewList');
 const NewWords = require('../views/NewWords');
+const MyThemes = require('../views/MyThemes');
 
 const { List, Word, Connect } = require('../db/models');
 
@@ -63,9 +64,16 @@ const listOfWords = async (req, res) => {
   }
 };
 
+const listOfThemes = async (req, res) => {
+  const { user } = req.session;
+  // console.log(user)
+  render(MyThemes, { user }, res);
+};
+
 module.exports = {
   newListPage,
   newList,
   newWordsPage,
   listOfWords,
+  listOfThemes,
 };
