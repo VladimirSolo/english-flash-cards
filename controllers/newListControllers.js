@@ -65,9 +65,22 @@ const listOfWords = async (req, res) => {
 };
 
 const listOfThemes = async (req, res) => {
-  const { user } = req.session;
-  // console.log(user)
-  render(MyThemes, { user }, res);
+  try {
+    const { user } = req.session;
+    const themes = await Connect.findAll({
+      where: {
+        user_id: user.id,
+      },
+      include: List,
+      raw: true,
+    });
+    render(MyThemes, { themes, user }, res);
+  } catch (error) {
+    render(Error, {
+      message: 'Не удалось получить запись из базы данных.',
+      error: {},
+    }, res);
+  }
 };
 
 module.exports = {
